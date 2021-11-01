@@ -1,2 +1,2 @@
-export declare const asd: () => void;
+export * from './main';
 //# sourceMappingURL=index.d.ts.map

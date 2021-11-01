@@ -1,0 +1,1 @@
+export const handlePromise: (p: Promise<any>) => Promise<[any | null, any | null]> = p => new Promise((res, _) => p.then(r => res([r, null])).catch(err => res([null, err])))
