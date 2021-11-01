@@ -1,0 +1,24 @@
+{
+  "name": "react-utils-la",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucas-almeida026/react-utils-la.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucas-almeida026/react-utils-la/issues"
+  },
+  "homepage": "https://github.com/lucas-almeida026/react-utils-la#readme",
+  "devDependencies": {
+    "typescript": "^4.4.4"
+  }
+}
