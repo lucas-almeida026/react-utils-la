@@ -1,12 +1,16 @@
 {
   "name": "react-utils-la",
-  "version": "1.0.0",
-  "description": "",
-  "main": "lib/index.js",
-  "types": "lib",
+  "version": "1.0.1",
+  "description": "This is a general typescript package with useful functions and some general abstract react components",
+  "main": "./lib/index.js",
+  "types": "./lib",
   "scripts": {
     "build": "tsc -p ."
   },
+  "files": [
+    "lib",
+    "README.md"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucas-almeida026/react-utils-la.git"

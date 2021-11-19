@@ -1,0 +1,4 @@
+- [Home](/)
+- [Functions](/functions/index)
+  - [handlePromise](/functions/index?id=handlePromise)
+    - [a](/)

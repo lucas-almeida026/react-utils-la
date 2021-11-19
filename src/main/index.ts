@@ -1,1 +1,11 @@
-export const handlePromise: (p: Promise<any>) => Promise<[any | null, any | null]> = p => new Promise((res, _) => p.then(r => res([r, null])).catch(err => res([null, err])))
+//promises
+export { handlePromise, handlePromiseChain } from './promise'
+
+//general
+export { exists, orderArrayOfObjects, removeEmptyAttributes } from './general'
+
+//mui
+export { flexColumn, flexRow, stackFlexColumn, stackFlexRow} from '../mui'
+
+//types
+export { Merge } from '../types'

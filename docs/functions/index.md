@@ -1,0 +1,3 @@
+# Functions
+
+### handlePromise :id=handlePromise
