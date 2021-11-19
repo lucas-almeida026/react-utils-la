@@ -3,9 +3,9 @@ export const removeEmptyAttributes = (obj: any) =>
 
 export function createDebounce(){
   let timer: any
-  return (fn: Function, time: number) => {
+  return (fn: Function, timeInMS: number) => {
     clearTimeout(timer)
-    timer = setTimeout(fn, time)
+    timer = setTimeout(fn, timeInMS)
   }
 }
 
@@ -16,7 +16,7 @@ export const exists = (item: any) => {
   return item !== null && item !== undefined
 }
 
-export const orderArrayOfObjects = <T extends object>(objArr: T[]) => {
+export const orderArrayOfObjects = <T extends object>(arrayOfObjects: T[]) => {
   type ObjectKeys = keyof T
   function by(key: ObjectKeys) {
     return {
@@ -25,14 +25,14 @@ export const orderArrayOfObjects = <T extends object>(objArr: T[]) => {
     }
   }
   function asc(key: ObjectKeys){
-    return objArr.sort((a: T, b: T) => {
+    return arrayOfObjects.sort((a: T, b: T) => {
       if(a[key] < b[key]) return -1
       if(a[key] > b[key]) return 1
       return 0
     })
   }
   function desc(key: ObjectKeys){
-    return objArr.sort((a: T, b: T) => {
+    return arrayOfObjects.sort((a: T, b: T) => {
       if(b[key] < a[key]) return -1
       if(b[key] > a[key]) return 1
       return 0

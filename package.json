@@ -1,6 +1,6 @@
 {
   "name": "react-utils-la",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "This is a general typescript package with useful functions and some general abstract react components",
   "main": "./lib/index.js",
   "types": "./lib",
