@@ -1,5 +1,5 @@
 {
-  "name": "tr-utils-braint",
+  "name": "tr-utils-la",
   "version": "1.0.1",
   "description": "This is a general typescript package with useful functions and some general abstract react components",
   "main": "index.js",

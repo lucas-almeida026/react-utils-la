@@ -20,8 +20,36 @@ Rules:
   - objects:
     - Object.keys(item).length > 0 || (!!item.length && item.length > 0)
 
+Example:
+```typescript
+exists('') //true
+exists({}) //false
+exists([]) //false
+exists(['']) //true
+```
+
 ### orderArrayOfObjects: \<T extends object\>(arrayOfObjects: T[]) => { by: (keys: keyof T) => { asc: () => T[], desc: () => T[] }}
 Sorts items based on specified key and chosen order (asc: ascendent | desc: descendent)
+
+Example:
+```typescript
+type MyObjectType = {
+  id: number,
+  name: string
+}
+const myArrayOfMyObjects: MyObjectType[] = [
+  {
+    id: 1,
+    name: 'asd'
+  },
+  {
+    id: 2,
+    name: 'asd2'
+  }
+]
+orderArrayOfObjects(myArrayOfMyObjects).by('id').desc() //[{id: 2, name: 'asd2'}, {id: 1, name: 'asd'}]
+orderArrayOfObjects(myArrayOfMyObjects).by('name').asc() //[{id: 1, name: 'asd'}, {id: 2, name: 'asd2'}]
+```
 
 <br>
 
@@ -30,6 +58,16 @@ Sorts items based on specified key and chosen order (asc: ascendent | desc: desc
 ### handlePromise: (p: Promise\<any\>) => Promise\<[any | null, any | null]\>
 
 Returns an array with two position, if the promise resolves the fisrt positoin comes with the result and the second comes null, if the promise fails the first position comes null and the second comes with the error
+
+Example
+```typescript
+const [result, error] = await handlePromise(callToAPI())
+if(!!error && exists(error)){
+  alert(error.message)
+  return
+}
+doSomethingWithResult(result)
+```
 
 ### handlePromiseChain: (...p: Promise\<any\>[]) => Promise\<[any[] | null, any[] | null]\>
 Same functionality as **handlePromise** but the inputs and the outputs are arrays
