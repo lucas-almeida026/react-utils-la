@@ -9,3 +9,6 @@ export { flexColumn, flexRow, stackFlexColumn, stackFlexRow} from '../mui'
 
 //types
 export { Merge } from '../types'
+
+//others
+export { withLanguages } from './others'
