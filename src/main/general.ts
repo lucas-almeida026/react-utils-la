@@ -1,5 +1,5 @@
 export const removeEmptyAttributes = (obj: any) => 
-  Object.fromEntries(Object.entries(obj).filter(([key, val]) => val !== undefined && val !== ''))
+  Object.fromEntries(Object.entries(obj).filter(([key, val]) => val !== undefined && val !== '' && val !== null))
 
 export function createDebounce(){
   let timer: any
