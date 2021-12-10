@@ -24,6 +24,7 @@ Example:
 ```typescript
 exists('') //true
 exists({}) //false
+exists({a: 'a'}) //true
 exists([]) //false
 exists(['']) //true
 ```
@@ -49,6 +50,34 @@ const myArrayOfMyObjects: MyObjectType[] = [
 ]
 orderArrayOfObjects(myArrayOfMyObjects).by('id').desc() //[{id: 2, name: 'asd2'}, {id: 1, name: 'asd'}]
 orderArrayOfObjects(myArrayOfMyObjects).by('name').asc() //[{id: 1, name: 'asd'}, {id: 2, name: 'asd2'}]
+```
+
+## Objects:
+
+### objectMap \<T extends object\>(object: T, fn: (key: keyof T, value: any) => any) => T
+Receives an object and a function that returns any
+Is like the array function _map_ but for objects
+
+Example: 
+```typescript
+const obj = {
+  asd: 'asd',
+  asd2: 'asd2'
+}
+objectMap(obj, (key, val) => val.toUpperCase()) // {asd: 'ASD', asd2: 'ASD2'}
+```
+
+### objectFilter \<T extends object\>(object: T, fn: (key: keyof T, value: any) => boolean): Partial\<T\>
+Receives an object and a function that returns boolean
+Is like the array function _filter_ but for objects
+
+Example: 
+```typescript
+const obj = {
+  asd: 'asd',
+  asd2: null
+}
+objectFilter(obj, (key, val) => val !== null) // {asd: 'asd'}
 ```
 
 <br>

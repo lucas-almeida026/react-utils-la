@@ -1,6 +1,6 @@
-export function handlePromise<ResultType>(p: Promise<ResultType>, callback?: Function): Promise<[ResultType | null, Error | null]>{
+export function handlePromise<PromiseType>(p: Promise<PromiseType>, callback?: Function): Promise<[PromiseType | null, Error | null]>{
   return new Promise((res, _) => {
-    p.then((r: ResultType) => res([r, null]))
+    p.then((r: PromiseType) => res([r, null]))
     .catch((err: Error) => res([null, err]))
     .finally(() => callback ? callback() : null)
   })

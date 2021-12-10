@@ -1,3 +1,5 @@
+import isEqual from "lodash.isequal"
+
 export const removeEmptyAttributes = (obj: any) => 
   Object.fromEntries(Object.entries(obj).filter(([key, val]) => val !== undefined && val !== '' && val !== null))
 
@@ -9,12 +11,17 @@ export function createDebounce(){
   }
 }
 
+export const isNil = (value: any) => value === null || value === undefined
+
 export const exists = (item: any) => {
-  if(typeof item === 'object'){
-    return item !== null && item !== undefined && (Object.keys(item).length > 0 || (!!item.length && item.length > 0))
+  if(item instanceof Object && !(item instanceof Array)){
+    return !isNil(item) && !isEqual(item, {})
+  }else if(item instanceof Array){
+    return !isNil(item) && !isEqual(item, [])
   }
-  return item !== null && item !== undefined
+  return !isNil(item)
 }
+
 
 export const orderArrayOfObjects = <T extends object>(arrayOfObjects: T[]) => {
   type ObjectKeys = keyof T
