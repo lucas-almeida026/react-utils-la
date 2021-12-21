@@ -9,3 +9,5 @@ export const objectFilter = <T extends object>(object: T, fn: (key: keyof T, val
   const filtered = entries.filter((e) => fn(e[0] as keyof T, e[1]))
   return Object.fromEntries(filtered) as Partial<T>
 }
+
+export const objectLength = (baseObject: object): number => Object.entries(baseObject).length
