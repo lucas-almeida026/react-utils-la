@@ -36,3 +36,6 @@ export const flexRow = (horizontalAlignment: JustifyContent = 'center', vertical
   justifyContent: horizontalAlignment,
   alignItems: verticalAlginment
 })
+
+export const vh = (value: number) => Math.ceil(window.innerHeight / 100 * value)
+export const vw = (value: number) => Math.ceil(window.innerWidth / 100 * value)

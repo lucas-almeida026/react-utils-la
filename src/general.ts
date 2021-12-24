@@ -1,16 +1,5 @@
 import isEqual from "lodash.isequal"
 
-export const removeEmptyAttributes = (obj: any) => 
-  Object.fromEntries(Object.entries(obj).filter(([key, val]) => val !== undefined && val !== '' && val !== null))
-
-export function createDebounce(){
-  let timer: any
-  return (fn: Function, timeInMS: number) => {
-    clearTimeout(timer)
-    timer = setTimeout(fn, timeInMS)
-  }
-}
-
 export const isNil = (value: any) => value === null || value === undefined
 
 export const exists = (item: any) => {

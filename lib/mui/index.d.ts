@@ -4,5 +4,7 @@ export declare const stackFlexColumn: (horizontalAlignment?: AlignItems, vertica
 export declare const stackFlexRow: (horizontalAlignment?: JustifyContent, verticalAlginment?: AlignItems) => any;
 export declare const flexColumn: (horizontalAlignment?: AlignItems, verticalAlginment?: JustifyContent) => any;
 export declare const flexRow: (horizontalAlignment?: JustifyContent, verticalAlginment?: AlignItems) => any;
+export declare const vh: (value: number) => number;
+export declare const vw: (value: number) => number;
 export {};
 //# sourceMappingURL=index.d.ts.map
