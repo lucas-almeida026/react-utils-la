@@ -1,6 +1,6 @@
 {
   "name": "tr-utils-la",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "This is a general typescript package with useful functions and some general abstract react components",
   "main": "index.js",
   "scripts": {

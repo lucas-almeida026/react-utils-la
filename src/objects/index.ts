@@ -30,7 +30,7 @@ export const objectFilter = <InputType extends object>(
   return Object.fromEntries(filtered) as Partial<InputType>
 }
 
-export const objectLength = (baseObject: object): number => Object.entries(baseObject).length
+export const objectLength = (baseObject: object): number => Object.keys(baseObject).length
 
 export const objectEvery = <InputType extends object>(
   object: InputType,
