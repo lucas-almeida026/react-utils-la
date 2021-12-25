@@ -68,3 +68,35 @@ export const objectConcat = <A extends object, B extends object>(
 ): A & B => {
   return { ...a, ...b }
 }
+
+export const isObject = (val: any) => val instanceof Object && !(val instanceof Array)
+
+const isArray = (val: any) => val instanceof Array
+
+export const objectDepth = (o: object): number => {
+  const values = Object.values(o)
+  const objectChildrens = values.filter(val => isObject(val))
+  if(objectChildrens.length > 0){
+    return 1 + Math.max(...objectChildrens.map(child => objectDepth(child)))
+  }
+  return 1
+}
+
+export const objectDeepEntries = (o: object): any => {
+  if(objectDepth(o) > 5) {
+    console.warn(`Preventing maximum call stack size error for object deepest then 5 levels`)
+    return []
+  }
+  const entries = Object.entries(o)
+  return entries.map(([key, value]) => ([key, (isObject(value) ? [ ...objectDeepEntries(value)] : value)]))
+}
+
+export const objectFromDeepEntries = (arr: any): any => {
+  const entries = Object.fromEntries(arr)
+  return objectMap(entries, (_, value) => {
+    if(isArray(value) && value.every((el: any) => isArray(el))) {
+      return objectFromDeepEntries(value)
+    }
+    return value
+  })
+}
