@@ -83,8 +83,8 @@ export const objectDepth = (o: object): number => {
 }
 
 export const objectDeepEntries = (o: object): any => {
-  if(objectDepth(o) > 5) {
-    console.warn(`Preventing maximum call stack size error for object deepest then 5 levels`)
+  if(objectDepth(o) * objectLength(o) > 100) {
+    console.warn(`Preventing maximum call stack size error for object deepEntriesObject`)
     return []
   }
   const entries = Object.entries(o)
