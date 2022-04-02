@@ -21,12 +21,12 @@ exists([]) //false
 exists(['']) //true
 ```
 
-### isNil: (value: any) => boolean
+### isNullable: (value: any) => boolean
 Return if value is _null_ or _undefined_
 ```typescript
-isNil(null) // true
-isNil(undefined) // true
-isNil('') // false
+isNullable(null) // true
+isNullable(undefined) // true
+isNullable('') // false
 ```
 
 ### orderArrayOfObjects: \<T extends object\>(arrayOfObjects: T[]) => { by: (keys: keyof T) => { asc: () => T[], desc: () => T[] }}
