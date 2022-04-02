@@ -52,77 +52,6 @@ orderArrayOfObjects(myArrayOfMyObjects).by('id').desc() //[{id: 2, name: 'asd2'}
 orderArrayOfObjects(myArrayOfMyObjects).by('name').asc() //[{id: 1, name: 'asd'}, {id: 2, name: 'asd2'}]
 ```
 
-## Objects:
-
-### objectMap: \<T extends object\>(object: T, fn: (key: keyof T, value: any) => any) => T
-Receives an object and a function that returns any
-Is like the array function _map_ but for objects
-
-Example: 
-```typescript
-const obj = {
-  asd: 'asd',
-  asd2: 'asd2'
-}
-objectMap(obj, (key, val) => val.toUpperCase()) // {asd: 'ASD', asd2: 'ASD2'}
-```
-
-### objectFilter: \<T extends object\>(object: T, fn: (key: keyof T, value: any) => boolean) => Partial\<T\>
-Receives an object and a function that returns boolean
-Is like the array function _filter_ but for objects
-
-Example: 
-```typescript
-const obj = {
-  asd: 'asd',
-  asd2: null
-}
-objectFilter(obj, (key, val) => val !== null) // {asd: 'asd'}
-```
-
-### objectLength: (object: object) => number
-Receives an object
-Returns the number of keys of a certain object
-```typescript
-const a = {
-  a: 'a',
-  b: 'b'
-}
-objectFilter(a) // 2
-```
-
-### objectEvery: \<T extends object\>(object: T, fn: (key: keyof T, value: any, index: number, entries: [string, any][]) => boolean) => boolean
-Receives an object and a function that returns boolean
-Is like the _Array.every_ but for objects
-```typescript
-const a = {
-  a: true,
-  b: true
-}
-objectEvery(a, (key, value, index, entries) => value) // true
-```
-
-### objectSome: \<T extends object\>(object: T, fn: (key: keyof T, value: any, index: number, entries: [string, any][]) => boolean) => boolean
-Receives an object and a function that returns boolean
-Is like the _Array.some_ but for objects
-```typescript
-const a = {
-  a: false,
-  b: false
-}
-objectSome(a, (key, value, index, entries) => value) // false
-```
-
-### objectConcat: \<A extends object, B extends object\>(a: A, b: B) => A & B
-Returns an object with attributes of A and B
-Note: If A and B has attributes with same key, the value will be overwritten by the rightmost parameter
-```typescript
-const a = { a: 'a', b: 'b' }
-const b = { c: 'c', b: 'b2' }
-objectConcat(a, b) // { a: 'a', b: 'b2', c: 'c' }
-objectConcat(b, a) // { a: 'a', b: 'b', c: 'c' }
-```
-
 <br>
 
 ## Promises:
@@ -185,8 +114,3 @@ vw(120) // 864
 ```
 
 <br>
-
-## Types:
-
-### Merge\<A, B\>
-Return the junction  between A and B ()

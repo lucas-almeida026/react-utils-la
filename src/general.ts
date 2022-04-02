@@ -1,14 +1,14 @@
 import isEqual from "lodash.isequal"
 
-export const isNil = (value: any) => value === null || value === undefined
+export const isNullable = (value: any): value is null => value === null || value === undefined
 
 export const exists = (item: any) => {
   if(item instanceof Object && !(item instanceof Array)){
-    return !isNil(item) && !isEqual(item, {})
+    return !isNullable(item) && !isEqual(item, {})
   }else if(item instanceof Array){
-    return !isNil(item) && !isEqual(item, [])
+    return !isNullable(item) && !isEqual(item, [])
   }
-  return !isNil(item)
+  return !isNullable(item)
 }
 
 
